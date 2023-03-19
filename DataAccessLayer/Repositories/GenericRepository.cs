@@ -2,6 +2,7 @@
 using DataAccessLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -12,54 +13,50 @@ namespace DataAccessLayer.Repositories
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class, new()
     {
+
+        Context context = new Context();
+
+        DbSet<TEntity> _object;
+
+        public GenericRepository()
+        {
+            _object = context.Set<TEntity>();
+        }
+
         public void Add(TEntity entity)
         {
-            using (var context = new Context())
-            {
-                context.Set<TEntity>().Add(entity);
-                context.SaveChanges();
-            }
+            var addedEntity = context.Entry(entity);
+            addedEntity.State = EntityState.Added;
+            context.SaveChanges();
         }
 
         public void Delete(TEntity entity)
         {
-            using (var context = new Context())
-            {
-                context.Set<TEntity>().Remove(entity);
-                context.SaveChanges();
-            }
+            var deletedEntity = context.Entry(entity);
+            deletedEntity.State = EntityState.Deleted;
+            context.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
-            using (var context = new Context())
-            {
-                context.SaveChanges();
-            }
+            var updatedEntity = context.Entry(entity);
+            updatedEntity.State = EntityState.Modified;
+            context.SaveChanges();
         }
 
-        public TEntity GetById(int id)
+        public TEntity GetById(Expression<Func<TEntity, bool>> filter)
         {
-            using (var context = new Context())
-            {
-                return context.Set<TEntity>().Find(id);
-            }
+            return _object.SingleOrDefault(filter);
         }
 
         public List<TEntity> GetList()
         {
-            using (var context = new Context())
-            {
-                return context.Set<TEntity>().ToList();
-            }
+            return _object.ToList();
         }
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter)
         {
-            using (var context = new Context())
-            {
-                return context.Set<TEntity>().Where(filter).ToList();
-            }
+            return _object.Where(filter).ToList();
         }
     }
 }

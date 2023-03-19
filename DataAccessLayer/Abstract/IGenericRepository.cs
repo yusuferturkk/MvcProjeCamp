@@ -13,7 +13,7 @@ namespace DataAccessLayer.Abstract
         void Add(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
-        TEntity GetById(int id);
+        TEntity GetById(Expression<Func<TEntity, bool>> filter);
         List<TEntity> GetList();
         List<TEntity> GetList(Expression<Func<TEntity, bool>> filter);
     }
