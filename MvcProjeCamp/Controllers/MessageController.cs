@@ -14,7 +14,6 @@ namespace MvcProjeCamp.Controllers
     {
 
         IMessageService messageService = new MessageManager(new EfMessageDal());
-        IDraftService draftService = new DraftManager(new EfDraftDal());
 
         public ActionResult Inbox()
         {
@@ -39,13 +38,6 @@ namespace MvcProjeCamp.Controllers
         {
             messageService.Add(message);
             return RedirectToAction("SendBox");
-        }
-
-        [HttpGet]
-        public ActionResult AddDraft(Draft draft)
-        {
-            draftService.Add(draft);
-            return RedirectToAction("Index", "Contact");
         }
     }
 }
