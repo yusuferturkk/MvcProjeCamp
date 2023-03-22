@@ -13,6 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/Templates/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Templates/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.css">
+    <script src="~/Templates/AdminLTE-3.0.4/plugins/summernote/summernote.min.js"></script>
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="~/Templates/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
@@ -36,7 +41,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="#" class="brand-link">
                 <img src="~/Templates/AdminLTE-3.0.4/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                      style="opacity: .8">
                 <span class="brand-text font-weight-light">Admin Panel</span>
@@ -100,7 +105,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/AdminGallery/Index/" class="nav-link">
+                            <a href="/Gallery/Index/" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Galeri
@@ -154,7 +159,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/ErrorPage/Page404/" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Hata Sayfaları
@@ -340,6 +345,8 @@
     <script src="~/Templates/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Templates/AdminLTE-3.0.4/dist/js/adminlte.js"></script>
+    <!-- Ekko Lightbox -->
+    <script src="~/Templates/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
 
     <!-- OPTIONAL SCRIPTS -->
     <!-- ChartJS -->
@@ -347,7 +354,7 @@
     <script src="~/Templates/AdminLTE-3.0.4/dist/js/pages/dashboard.js"></script>
     <script src="~/Templates/AdminLTE-3.0.4/dist/js/demo.js"></script>
 
-    <script src="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="~/Templates/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- Page Script -->
     <script>
         $(function () {
@@ -355,5 +362,22 @@
             $('#compose-textarea').summernote().noConflict;
         })
     </script>
+
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
+
+            $('.filter-container').filterizr({ gutterPixels: 3 });
+            $('.btn[data-filter]').on('click', function () {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
+        })</script>
 </body>
 </html>

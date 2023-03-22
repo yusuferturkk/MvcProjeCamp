@@ -17,7 +17,6 @@ namespace MvcProjeCamp.Controllers
         ContactValidator validator = new ContactValidator();
 
         IMessageService messageService = new MessageManager(new EfMessageDal());
-        IDraftService draftService = new DraftManager(new EfDraftDal());
 
         public ActionResult Index()
         {
@@ -29,12 +28,10 @@ namespace MvcProjeCamp.Controllers
         {
             var inboxCount = messageService.GetListInbox().Count();
             var sendboxCount = messageService.GetListSendbox().Count();
-            var draftCount = draftService.GetList().Count();
             var contactCount = contactService.GetList().Count();
 
             ViewBag.inboxCount = inboxCount;
             ViewBag.sendboxCount = sendboxCount;
-            ViewBag.draftCount = draftCount;
             ViewBag.contactCount = contactCount;
             return PartialView();
         }

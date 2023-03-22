@@ -5,28 +5,28 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<section class="content-header">
+    <div class="container-fluid">
 
-<div class="container" style="margin-top:75px;">
-
-    <h2>Kategori Güncelleme Ekranı</h2>
-    <br />
-
-    <form method="post" class="form-group">
-
-        @Html.HiddenFor(x => x.CategoryId)
-
-        <label>Kategori Adı</label>
-        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.CategoryName)
+        <h1>Kategori Güncelleme</h1>
         <br />
 
-        <label>Açıklama</label>
-        @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.CategoryDescription)
-        <br />
+        <form method="post" class="form-group">
 
-        <button class="btn btn-primary">Güncelle</button>
+            @Html.HiddenFor(x => x.CategoryId)
 
-    </form>
-</div>
+            <label>Kategori Adı</label>
+            @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.CategoryName)
+            <br />
+
+            <label>Açıklama</label>
+            @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.CategoryDescription)
+            <br />
+
+            <button class="btn btn-primary">Güncelle</button>
+
+        </form>
+    </div>
+</section>

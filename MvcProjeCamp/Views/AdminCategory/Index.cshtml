@@ -25,7 +25,14 @@
                     <td>@item.CategoryId</td>
                     <td>@item.CategoryName</td>
                     <td>@item.CategoryDescription</td>
-                    <td>@item.CategoryStatus</td>
+                    @if (item.CategoryStatus == true)
+                    {
+                        <td><a href="#" class="btn btn-success">Aktif</a></td>
+                    }
+                    else
+                    {
+                        <td><a href="#" class="btn btn-danger">Pasif</a></td>
+                    }
                     <td><a href="/AdminCategory/DeleteCategory/@item.CategoryId/" class="btn btn-outline-danger">Sil</a></td>
                     <td><a href="/AdminCategory/UpdateCategory/@item.CategoryId/" class="btn btn-outline-success">Güncelle</a></td>
                 </tr>

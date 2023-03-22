@@ -88,5 +88,11 @@ namespace MvcProjeCamp.Controllers
             headingService.Update(heading);
             return RedirectToAction("Index");
         }
+
+        public ActionResult HeadingByWriteWriter(int id)
+        {
+            var values = headingService.GetListByWriterId(id);
+            return View(values);
+        }
     }
 }

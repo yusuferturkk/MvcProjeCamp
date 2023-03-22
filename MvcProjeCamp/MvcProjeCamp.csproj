@@ -140,6 +140,8 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
@@ -343,6 +345,21 @@
     <Content Include="Templates\AdminLTE-3.0.4\docs\_layouts\home.html" />
     <Content Include="Templates\AdminLTE-3.0.4\docs\_layouts\page.html" />
     <Content Include="Templates\AdminLTE-3.0.4\docs\_layouts\post.html" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\800px-Grand_Place_Bruselas_2.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\about\about-1.png" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\about\about-2.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\about\about-3.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\about\about-4.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\Bruksel-Belcika_aepoob.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\france-roissy-en-france-charles-de-gaulle-airport-traveltheworld.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\HD-wallpaper-lyon-rhone-and-sona-rivers-evening-sunset-church-lyon-cityscape-france.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\hollanda-amsterdam.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\prag.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\rotterdam-delfshaven.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\t3hz1b.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\thumbs_b_c_36e2a0e1e4322d339919e1b4f958cd93.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\world-wonders-to-travel-wallpaper-gc3y5vth644x90n1.jpg" />
+    <Content Include="Templates\AdminLTE-3.0.4\images\wp3146366.jpg" />
     <Content Include="Templates\AdminLTE-3.0.4\index.html" />
     <Content Include="Templates\AdminLTE-3.0.4\index2.html" />
     <Content Include="Templates\AdminLTE-3.0.4\index3.html" />
@@ -2020,6 +2037,10 @@
     <Content Include="Templates\AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="Templates\AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="Templates\AdminLTE-3.0.4\starter.html" />
+    <Content Include="Templates\colorlib-error-404-10\css\style.css" />
+    <Content Include="Templates\colorlib-error-404-10\img\bg.jpg" />
+    <Content Include="Templates\colorlib-error-404-10\index.html" />
+    <Content Include="Templates\colorlib-error-404-10\readme.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2311,6 +2332,11 @@
     <Content Include="Views\Message\Inbox.cshtml" />
     <Content Include="Views\Message\SendBox.cshtml" />
     <Content Include="Views\Message\NewMessage.cshtml" />
+    <Content Include="Views\Message\GetInboxMessageDetails.cshtml" />
+    <Content Include="Views\Message\GetSendboxMessageDetails.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Heading\HeadingByWriteWriter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -81,9 +81,42 @@
                                     </li>
                                 </ul>
                             </td>
-                            <td class="project-state">
-                                <span class="badge badge-warning">@item.Category.CategoryName</span>
-                            </td>
+                            @if (item.Category.CategoryName == "Dizi")
+                            {
+                                <td class="project-state">
+                                    <span class="badge badge-dark">@item.Category.CategoryName</span>
+                                </td>
+                            }
+                            else if (item.Category.CategoryName == "Film")
+                            {
+                                <td class="project-state">
+                                    <span class="badge badge-primary">@item.Category.CategoryName</span>
+                                </td>
+                            }
+                            else if (item.Category.CategoryName == "Kitap")
+                            {
+                                <td class="project-state">
+                                    <span class="badge badge-info">@item.Category.CategoryName</span>
+                                </td>
+                            }
+                            else if (item.Category.CategoryName == "Tiyatro")
+                            {
+                                <td class="project-state">
+                                    <span class="badge badge-success">@item.Category.CategoryName</span>
+                                </td>
+                            }
+                            else if (item.Category.CategoryName == "Yazılım")
+                            {
+                                <td class="project-state">
+                                    <span class="badge badge-danger">@item.Category.CategoryName</span>
+                                </td>
+                            }
+                            else if (item.Category.CategoryName == "Seyahat")
+                            {
+                                <td class="project-state">
+                                    <span class="badge badge-warning">@item.Category.CategoryName</span>
+                                </td>
+                            }
                             @if (item.HeadingStatus == true)
                             {
                                 <td style="padding-left:20px;">
