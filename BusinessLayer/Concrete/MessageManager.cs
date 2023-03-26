@@ -41,12 +41,22 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetListInbox()
         {
-            return _messageDal.GetList(x => x.ReceiverMail == "admin@gmail.com");
+            return _messageDal.GetList(x => x.ReceiverMail == "admin@gmail.com" && x.MessageStatus.MessageCategory == "Mesajlar");
         }
 
         public List<Message> GetListSendbox()
         {
-            return _messageDal.GetList(x => x.SenderMail == "admin@gmail.com");
+            return _messageDal.GetList(x => x.SenderMail == "admin@gmail.com" && x.MessageStatus.MessageCategory == "Mesajlar");
+        }
+
+        public List<Message> GetListDraftbox()
+        {
+            return _messageDal.GetList(x => x.SenderMail == "admin@gmail.com" && x.MessageStatus.MessageCategory == "Taslaklar");
+        }
+
+        public List<Message> GetListTrashbox()
+        {
+            return _messageDal.GetList(x => x.MessageStatus.MessageCategory == "Çöp Kutusu");
         }
 
         public List<Message> GetList()

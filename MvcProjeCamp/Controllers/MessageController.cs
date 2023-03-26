@@ -30,6 +30,18 @@ namespace MvcProjeCamp.Controllers
             return View(values);
         }
 
+        public ActionResult DraftBox()
+        {
+            var values = messageService.GetListDraftbox();
+            return View(values);
+        }
+
+        public ActionResult TrashBox()
+        {
+            var values = messageService.GetListTrashbox();
+            return View(values);
+        }
+
         public ActionResult GetInboxMessageDetails(int id)
         {
             var value = messageService.GetById(id);
@@ -49,14 +61,34 @@ namespace MvcProjeCamp.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewMessage(Message message)
+        public ActionResult NewMessage(Message message, string draftBox, string sendBox, string trashBox)
         {
             ValidationResult results = validator.Validate(message);
             if (results.IsValid)
             {
-                message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                messageService.Add(message);
-                return RedirectToAction("Sendbox");
+                if (sendBox != null)
+                {
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    message.MessageStatusId = 1;
+                    messageService.Add(message);
+                    return RedirectToAction("SendBox");
+                    
+                }
+                else if (draftBox != null)
+                {
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    message.MessageStatusId = 2;
+                    messageService.Add(message);
+                    return RedirectToAction("DraftBox");
+                }
+                else if (trashBox != null)
+                {
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    message.MessageStatusId = 3;
+                    messageService.Add(message);
+                    return RedirectToAction("TrashBox");
+                }
+
             }
             else
             {

@@ -18,6 +18,7 @@ namespace MvcProjeCamp.Controllers
 
         ICategoryService categoryService = new CategoryManager(new EfCategoryDal());
 
+        [Authorize]
         public ActionResult Index()
         {
             var values = categoryService.GetList();

@@ -1,7 +1,7 @@
 ﻿@model List<EntityLayer.Concrete.Message>
 
 @{
-    ViewBag.Title = "SendBox";
+    ViewBag.Title = "Sendbox";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -76,9 +76,9 @@
                                                 </div>
                                             </td>
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Message/GetSendboxMessageDetails/@item.MessageId">@item.ReceiverMail</a></td>
+                                            <td class="mailbox-name"><a href="/Message/GetInboxMessageDetails/@item.MessageId">@item.ReceiverMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b> - @item.MessageContent.Substring(0, 50) ...
+                                                <b>@item.Subject</b> - @item.MessageContent.Substring(0, 20) ...
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date">@item.MessageDate.ToString("dd-MMM-yyyy")</td>

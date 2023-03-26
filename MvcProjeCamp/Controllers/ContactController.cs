@@ -28,11 +28,15 @@ namespace MvcProjeCamp.Controllers
         {
             var inboxCount = messageService.GetListInbox().Count();
             var sendboxCount = messageService.GetListSendbox().Count();
+            var draftboxCount = messageService.GetListDraftbox().Count();
             var contactCount = contactService.GetList().Count();
+            var trashboxCount = messageService.GetListTrashbox().Count();
 
             ViewBag.inboxCount = inboxCount;
             ViewBag.sendboxCount = sendboxCount;
             ViewBag.contactCount = contactCount;
+            ViewBag.draftboxCount = draftboxCount;
+            @ViewBag.trashboxCount = trashboxCount;
             return PartialView();
         }
 
